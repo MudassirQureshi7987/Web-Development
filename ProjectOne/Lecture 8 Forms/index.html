@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+        <label for="email">Enter Email Id : </label>
+        <input type = "text"; id = "email"; placeholder="abc123@example.com">
+        <br/>
+        <br/>
+        <label for="password">Enter Password : </label>
+        <input type = "text"; id = "password"; value = "something">
+        <br/>
+        <br/>
+        <input type = "submit"; value = "Click">
+
+        <br/>
+        <br/>
+
+        <label for = "date">Choose Date:</label>
+        <input id = "date" type = "date">
+
+        <br/>
+        <br/>
+
+        <label for="selector">Choose your Dish:</label>
+        <select name="dishes" id="selector">
+            <option value = "placeholder"><--Please select your dish--></option>
+            <option value="maggie">Maggie</option>
+            <option value="kurkure">Kurkure</option>
+            <option value="chips">Chips</option>
+        </select>
+
+        <br>
+        <br>
+
+        <button>I am button</button>
+
+        <br>
+        <br>
+
+        <textarea name="textArea1" id="textArea1" rows = "12" cols = "35">You can write here also</textarea>
+
+        <br>
+        <br>
+
+        <fieldset>
+            <legend>Personal Info:</legend>
+             <label for = "date">Choose Date:</label>
+            <input id = "date" type = "date">
+
+            <br/>
+            <br/>
+
+            <label for="selector">Choose your Dish:</label>
+            <select name="dishes[]" id="selector" multiple>
+                <option value = "placeholder"><--Please select your dish--></option>
+                <option value="maggie">Maggie</option>
+                <option value="kurkure">Kurkure</option>
+                <option value="chips">Chips</option>
+            </select>
+
+            <br>
+            <br>
+
+            <button>I am button</button>
+
+            <br>
+            <br>
+
+            <textarea name="textArea1" id="textArea1" rows = "12" cols = "35">You can write here also</textarea>
+        </fieldset>
+    </form>
+</body>
+</html>

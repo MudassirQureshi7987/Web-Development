@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form >
+        <input type="text">
+        <!-- By default it is always text -->
+        <br>
+        <br>
+
+        <input type="submit" name = "button1" id = "button1" value = "Subscribe">
+
+        <br>
+        <br>
+
+        <label for="male">Male:</label>
+        <input type="radio" name = "male1" id = "male1">
+        <br>
+         <label for="female">Female:</label>
+        <input type="radio" name = "female" id = "female">
+        <br>
+         <label for="other">Other:</label>
+        <input type="radio" name = "other" id = "other">
+        <br>
+        <br>
+
+        <!-- In HTML, if all radio buttons are getting selected, it's because they don't share the same name attribute.
+        ✅ Correct Way: Use the same name for all radio buttons in a group
+
+        Only one radio button in the same name group can be selected at a time. -->
+        <p>Choose your gender:</p>
+
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+
+        <input type="radio" id="other" name="gender" value="other">
+        <label for="other">Other</label>
+
+        <br>
+        <br>
+
+        <label for="checkbox1">English</label>
+        <input type="checkbox" name = "checkbox1" id = "checkbox1">
+
+        <label for="checkbox2">Hindi</label>
+        <input type="checkbox" name = "checkbox2" id = "checkbox2">
+    </form>
+</body>
+</html>
