@@ -1,0 +1,43 @@
+/* 1. Universal Selector (*) */
+
+/* Selects all elements on the page. */
+
+*{
+  box-sizing: border-box;
+}
+
+/* 2️2.  Element Selector */
+
+/* Targets all elements of a specific type (e.g., div, p, h1). */
+
+p {
+  color: black;
+}
+
+/* 3.  Class Selector (.classname) */
+
+/* Targets all elements with a given class. */
+
+.card {
+  padding: 10px;
+}
+
+/* 4.  ID Selector (#idname) */
+
+/* Targets one unique element with a specific ID. */
+
+#navbar {
+  background-color: #333;
+}
+
+/* 5.  Group Selector (,) */
+
+/* Applies the same style to multiple selectors at once. */
+
+h1, h2, p {
+  font-family: Arial;
+}
+
+p.paraClass{
+    font : italic;
+}
