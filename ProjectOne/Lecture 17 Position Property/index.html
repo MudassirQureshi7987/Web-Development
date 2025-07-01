@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Position Demo</title>
+
+    <style>
+        /* Adds a border to all divs to visualize layout boundaries */
+        div {
+            border: 2px solid brown;
+        }
+
+        /* All images have margin to separate them visually */
+        img {
+            margin: 10px;
+        }
+
+        /* 
+            position: absolute;
+            - Removes the element from normal document flow.
+            - Positions it relative to the nearest ancestor with position: relative, absolute, or fixed.
+            - Allows use of top, left, right, bottom for exact placement.
+        */
+        .image2 {
+            position: absolute;
+            top: 100px; /* Moves the image 100px from the top of its positioned ancestor */
+        }
+
+        /* 
+            position: absolute;
+            - This image has no relatively positioned parent, so it will be placed relative to <body>.
+        */
+        .image5 {
+            position: absolute;
+        }
+
+        /* 
+            position: fixed;
+            - Removes the element from normal flow.
+            - Positions it relative to the browser window (viewport).
+            - It stays fixed in the same place even when scrolling.
+        */
+        .image4 {
+            position: fixed;
+        }
+
+        /* 
+            position: relative;
+            - Keeps the element in normal flow.
+            - Allows its children with position: absolute to use it as a reference.
+            - top/left/right/bottom move the element *relative to its original position*.
+        */
+        .container {
+            position: relative;
+            background-color: beige;
+            height: 3000px; /* Tall height allows scrolling for sticky and fixed demo */
+        }
+
+        /* 
+            position: sticky;
+            - Behaves like relative until a given offset (top, left, etc.) is met.
+            - Then it "sticks" to that position as you scroll past it.
+            - Requires a scrollable container with enough height.
+        */
+        .image3 {
+            position: sticky;
+            top: 100px; /* Sticks when 100px from top while scrolling */
+        }
+
+        /* Just adds height to create scrollable space */
+        .box {
+            height: 3000px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+        .container is relatively positioned.
+        It acts as the reference point for absolutely positioned elements inside it.
+    -->
+    <div class="container">
+
+        <!-- 
+            .image1
+            position: static (default);
+            - Follows the normal document flow.
+            - Cannot be moved using top/left/right/bottom.
+        -->
+        <img src="8ddb26f7-cde4-4c16-b895-9927bf9eabdb.avif" alt="Image 1" height="300px" width="250px" class="image1">
+
+        <!-- 
+            .image2
+            position: absolute;
+            - Positioned 100px from the top of .container (which is relative).
+        -->
+        <img src="images.jpg" alt="Image 2" height="300px" width="250px" class="image2">
+
+        <!-- 
+            .image3
+            position: sticky;
+            - Scrolls normally until it reaches 100px from the top of the screen.
+            - Then it "sticks" at that point during scrolling.
+        -->
+        <img src="solo-leveling-featured-1.avif" alt="Image 3" height="300px" width="250px" class="image3">
+
+        <!-- 
+            .image4
+            position: fixed;
+            - This image stays fixed on the screen even when scrolling.
+        -->
+        <img src="sung-jinwoo-asks-if-undead-experience-fear-solo-leveling-season-2-arise-from-the-shadow-episode-3.avif" alt="Image 4" height="300px" width="250px" class="image4">
+    </div>
+
+    <!-- 
+        .image5
+        position: absolute;
+        - Since it's outside any relatively positioned parent, it's positioned relative to the body.
+    -->
+    <img src="sung_jinwoo.gif" alt="Image 5" height="300px" width="250px" class="image5">
+
+    <!-- 
+        .box
+        Adds more scrollable height to observe sticky and fixed behavior.
+    -->
+    <div class="box"></div>
+
+</body>
+</html>

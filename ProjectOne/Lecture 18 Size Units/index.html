@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box{
+            border: 1px solid brown;
+            background-color: beige;
+            /* When we give it 50% , it takes 50% space according to the body size that is the page size */
+            width : 50%;
+        }
+
+        .parent{
+            background-color: aquamarine;
+            border : 1px solid brown;
+            width: 60%;
+        }
+
+        .child{
+            background-color: bisque;
+            border : 1px solid black;
+            /* It takes the 50% of its immediate parent that is parent div and takes 50% of parent */
+            width: 50%;
+
+        }
+
+        .vweg{
+            background-color: blanchedalmond;
+            border: 1px solid black;
+
+            /* vw stands for viewport width.
+
+                    1 vw is equal to 1% of the width of the browser window (the viewport).
+
+                So if the viewport is 1000px wide, then:
+
+                1vw = 10px
+
+                 50vw = 500px
+
+                100vw = 1000px */
+            height : 100vw;
+            width: 50vw;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class = "box">
+        Welcome to World
+    </div>
+
+    <br>
+
+    <div class = "parent">
+
+        <div class = "child">
+            This is Child
+        </div>
+
+    </div>
+
+
+
+    <div class = "vweg">
+        Lord of the Mysteries
+    </div>
+</body>
+</html>

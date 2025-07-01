@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Box Model and Display Types</title>
+
+  <style>
+    /* 
+    This applies to all elements (*) 
+    - Adds default margin (space outside)
+    - Removes default padding (space inside)
+    - border-box makes sure the size includes padding + border
+    */
+    * {
+      margin: 10px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      /* Block-level element by default (takes full width) */
+      width: 300px;
+      height: 300px;
+
+      /* A thin black border */
+      border: 1px solid black;
+
+      /* Padding: space inside the box */
+      padding: 20px;
+
+      /* Because of box-sizing: border-box, 
+         the total size is still 300x300 including padding + border */
+    }
+
+    span {
+      /* Border to make the span visible */
+      border: 2px solid green;
+
+      /* These won’t work on inline elements by default */
+      width: 300px;
+      height: 200px;
+
+      margin: 5px;
+      padding: 5px;
+
+      /* Makes span behave like a block that stays inline */
+      display: inline-block;
+
+      /* Now the width and height are applied successfully */
+    }
+
+    /*
+    Optional: Uncomment to see how div behaves as a full block
+    div {
+      border: 1px solid red;
+      width: 300px;
+      height: 300px;
+      margin: 25px;
+      padding: 50px;
+    }
+    */
+  </style>
+</head>
+
+<body>
+
+  <!-- 
+  This div is a block-level element.
+  It will take up the full width and push the next one down.
+  Uncomment to test:
+  -->
+
+  <!--
+  <div>
+    Welcome to CodeHelp
+  </div>
+
+  <div>
+    Welcome to Codehelp 2.0
+  </div>
+  -->
+
+  <!-- 
+  This is a .box class using padding and border.
+  Width and height include border and padding because of border-box.
+  Uncomment to see:
+  -->
+
+  <!--
+  <div class="box">
+    Welcome to Codehelp
+  </div>
+  -->
+
+  <!-- 
+  Span is an inline element by default, but we made it inline-block.
+  That lets it:
+  - Sit next to other elements (like inline)
+  - Have width/height/padding/margin (like block)
+  -->
+
+  <span>
+    This is Love Babbar
+  </span>
+
+  <span>
+    This is Love Babbar 2.0
+  </span>
+
+</body>
+</html>
