@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .container{
+            background-color: beige;
+            border: 5px solid black;
+            margin : 3px;
+            padding : 2px;
+            display: flex;   /* By default,flex is arranged (flex-direction) by row */
+            /* flex-direction: column;  This sets the boxes to come in the same column */
+            flex-direction: row;
+            /* flex-wrap: wrap; */
+            /* This can also be written using a shorthand using 'flex-flow' */
+            /* flex-flow: row-reverse wrap-reverse; */
+            justify-content: space-around;
+            height : 1200px;
+
+            /* align-items: center; */
+            align-items: stretch; 
+            /* By default it is set to 'stretch' */
+            /* works on cross axis */
+            /* If the height of the flex items is not hard coded then they would stretch to the end of the flexbox */
+
+            /* To center the flex items */
+            /* justify-content: center;
+            align-items: center; */
+
+            justify-content: start;
+            align-items: start;
+            /* To remove the spacing when wrapped */
+            align-content: start;
+        }
+
+        .box{
+            height : 200px;
+            width: 200px;
+            border: 2px solid brown;
+            margin : 3px;
+            padding : 2px;
+        }
+
+        #box1{
+            background-color: aqua;
+            /* To arrange the sequence of flex items set the 'order' and u can give numbering yourself */
+            order : 666;
+            /* If we wwant this box1 to shrink 4x faster than the other boxes then */
+            flex-shrink: 4;
+
+            /* It controls how much a flex item should grow (take up more space) if there's extra space in the flex container. */
+            /* Default is 0 (do not grow)
+
+            1 means the item can grow to take available space
+
+            Higher numbers = grow more relative to others */
+            flex-grow: 2;
+        }
+
+        #box2{
+            background-color: red;
+
+            /* The align-self CSS property overrides a grid or flex item's align-items value. In grid, it aligns the item inside the grid area. In flexbox, it aligns the item on the cross axis.  */
+
+            align-self: center ;
+        }
+
+        #box3{
+            background-color: green;
+            order : -1;
+            /* Flex Basis:
+            Sets the initial main size of the item before it grows or shrinks.
+
+            It is Flexbox-specific and more powerful/flexible.
+
+            Overrides width (if both are set). */
+            flex-basis: 400px;
+        }
+
+        #box4{
+            background-color: purple;
+
+            /* The short hand notation for setting flex */
+            /* flex: <flex-grow> <flex-shrink> <flex-basis>;     */
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class = "container">
+        <div class = "box" id = "box1">Box 1</div>
+        <div class = "box" id = "box2">Box 2</div>
+        <div class = "box" id = "box3">Box 3</div>
+        <div class = "box" id = "box4">Box 4</div>
+    </div>
+</body>
+</html>
