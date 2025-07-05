@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .container{
+            background-color: beige;
+            border: 3px solid blue;
+            height : 500px;    
+            width : 780px;  
+            display: flex;    
+        }
+
+        img{
+            height : 380px;
+            width : 380px;
+            border : 1px solid brown;
+        }
+
+        p{
+            border : 1px solid black;
+            width : 380px;
+        }
+
+        .boxleft{
+            border : 2px solid red;
+        }
+
+        .boxright{
+            border : 2px solid aqua;
+        }
+
+        @media (max-width : 640px){
+            .container{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class = "container">
+
+        <div class = "boxleft">
+
+            <p>Text 1</p>
+            <p>Text 2</p>
+        </div>
+
+        <div class="boxright">
+            <img src="solo-leveling-featured-1.avif" alt="Sung Jinwoo">
+        </div>
+    </div>
+</body>
+</html>

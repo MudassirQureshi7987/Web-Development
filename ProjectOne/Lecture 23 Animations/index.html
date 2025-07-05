@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            padding : 0px;
+            margin : 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            width : 100vw;
+            height : 100vh;
+            background-color: beige;
+            border : 5px solid brown;
+        }
+
+        .box{
+            width : 350px;
+            height : 90px;
+            background-color: aquamarine;
+            border : 1px solid black;
+            margin: 3px;
+            border-radius: 20px;
+            position: relative;
+            animation-name: rightMovement;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-iteration-count: 1;
+            animation-delay: 2s;
+            /* By default,the box first goes fast and then slows down at the end  */
+            animation-timing-function: linear;
+            /* The animation-timing-function property specifies the speed curve of the animation.
+
+               The animation-timing-function property can have the following values:
+
+                ease - Specifies an animation with a slow start, then fast, then end slowly (this is default)
+                linear - Specifies an animation with the same speed from start to end
+                ease-in - Specifies an animation with a slow start
+                ease-out - Specifies an animation with a slow end
+                ease-in-out - Specifies an animation with a slow start and end
+                cubic-bezier(n,n,n,n) - Lets you define your own values in a cubic-bezier function
+ */             
+            animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+            /* Setting 'alterate' would make this go to and fro */
+            /* Seting it 'reverse' would make it go in reverse direction */
+            /* animation-direction: alternate; */
+
+            animation-fill-mode: both;
+
+            
+        /* The shorthand animation property:
+           @keyframes duration | easing-function | delay |
+           iteration-count | direction | fill-mode | play-state | name
+           Example usage (uncomment and place inside a selector if needed):
+           animation: 3s ease-in 1s 2 reverse both paused slide-in;
+        */
+
+        /* @keyframes duration | easing-function | delay | name
+           Example usage (uncomment and place inside a selector if needed):
+           animation: 3s linear 1s slide-in;
+        */
+
+        /* two animations
+           Example usage (uncomment and place inside a selector if needed):
+           animation:
+           3s linear slide-in,
+           3s ease-out 5s slide-out;
+
+
+        */
+
+            animation: 5s ease-in 1s infinite alternate none running rightMovement;
+        }
+
+        @keyframes rightMovement {
+            
+            from {
+                top : 0;
+                left : 0;
+            }
+
+            to {
+                top : 0;
+                left : 1200px;
+            }
+        }  
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            position: relative;
+            animation: moveBox 3s ease-in-out 2s 1;
+            animation-fill-mode: both;
+            }
+
+        @keyframes moveBox {
+            from {
+                left: 0;
+                background-color: tomato;
+            }
+
+            to {
+                left: 300px;
+                background-color: teal;
+            }
+        }
+
+        /* 
+        0s to 2s	Delay period — but element already looks like the from style (left: 0, tomato)
+        2s to 5s	Animation runs — box moves to left: 300px, turns teal
+        After 5s	Animation ends — element stays teal and at 300px
+        */
+     
+        .circle{
+            width : 100px;
+            height : 100px;
+            background-color: aquamarine;
+            border : 1px solid black;
+            margin: 3px;
+            border-radius: 50px;
+            position: relative;
+            top : 280px;
+            left : 1400px;
+            animation: 5s ease-in 1s infinite alternate none running circleMovement;
+        }
+
+        @keyframes circleMovement {
+            
+            0% {
+                top : 280px;
+                left : 1400px;
+            }
+            30% {
+                top : 200px;
+                left : 2800px;
+            }
+
+            65% {
+                top : 700px;
+                left : 100px
+            }
+            100% {  
+                top : 700px;
+                left : 2000px;
+            }
+        }
+
+        .box3{
+            width : 350px;
+            height : 90px;
+            background-color: aquamarine;
+            border : 1px solid black;
+            margin: 3px;
+            border-radius: 20px;
+            position: relative;
+            animation: 5s ease-in 1s infinite alternate none running downRight;
+        }
+
+        @keyframes downRight {
+            
+            from {
+                top : 450px;
+                left : 1350px;
+            }
+
+            to {
+                top : 450px;
+                left : 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="box">
+
+        </div>
+
+        <div class="box2">
+            Hello
+        </div>
+
+        <div class="circle">
+
+        <div class = "box3">
+
+        </div>
+
+        </div>
+    </div>
+</body>
+</html>

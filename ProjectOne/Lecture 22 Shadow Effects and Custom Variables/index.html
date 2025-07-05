@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* These custom variables are like the global variables and can be used throughout the program */
+        :root{
+            --primary-color :brown;
+            --custom-width : 330px;
+        }
+        .container{
+            background-color: beige;
+            border: 2px solid black;
+            height : 650px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box{
+
+            /* Custom variable can be created using this syntax and we just need to use a var(name) to use it */
+            /* These can only be used within these braces of the box and nowhere else,to use it somehwere else,we need to declare it there also */
+            --primary-color :brown;
+            --custom-width : 330px;
+
+            background-color: aquamarine;
+            border : 1px solid var(--primary-color);
+            margin : 4px;
+            padding : 4px;
+            height : 330px;
+            width : var(--custom-width);
+
+            /*           x     y   color     */
+            /* box-shadow: 10px 10px brown; */
+
+            /* The negative signs make the shadow appear on the left side instead of the right side */
+            /* box-shadow: -10px 20px green; */
+
+            /* The third parameter that is '5px' is the blur radius,the more it is,the blurrer it is and the bigger it is */
+            /* Negative blur radius doesnt exist */
+            /* box-shadow: 10px 10px 20px brown; */
+
+            /* The fourth para is Spread Radius that is the amount to how much bigger we want to spread it */
+            /* It is affecting all the 4 sides of the box and the shadow is now coming from every where */
+            /* box-shadow: 10px 15px 5px 20px brown; */
+
+
+            /* The 'inset' gives the shadow inside the box and the shadow comes at the left and top side that is the opposite direction of the offset shadow */
+            /* Directions change if we take negative */
+            /* box-shadow: inset 10px 15px 7px rgba(45, 223, 74, 0.6); */
+
+            /* Multiple shadows can be added using this syntax */
+            /* box-shadow: 10px 15px red,15px 18px green; */
+        }
+
+        #head1{
+            /* Text shadow is also same as the box shadow but here,spread parameter does not exist */
+            text-shadow: 3px 2px 2px white;
+            /* It can also be written as this */
+            text-shadow: yellow 3px 2px 2px;
+
+            /* We can exclude the blur radius also */
+            text-shadow : 1px 2px brown;
+
+            /* If we do not mention the color,it sets it by default that is : Black */
+            text-shadow: 1px 2px;
+
+            /* Way to add multiple text shadows */
+            text-shadow:
+            2px 2px 4px rgba(0, 0, 0, 0.3),   /* subtle dark shadow */
+            -1px -1px 0 rgba(255, 255, 255, 0.6); /* soft white highlight */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <div class="box">
+
+            <img src="logo.svg" alt="CodeHelp Logo">
+
+            <h2 id = "head1">Welcome to CodeHelp</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, distinctio eveniet neque laudantium quaerat velit placeat debitis sit accusantium suscipit incidunt laboriosam eos, dolor nesciunt earum fugit id, est ipsa voluptatibus aspernatur corporis expedita. Porro.</p>
+
+        </div>
+    </div>
+</body>
+</html>
