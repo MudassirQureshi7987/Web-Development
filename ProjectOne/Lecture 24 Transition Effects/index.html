@@ -4,9 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+
+        .box{
+            height : 1000px;
+            width : 800px;
+            background-color: aquamarine;
+            border : 1px solid black;
+
+            /* Setting this to 'all' makes all the hovering transitions smooth,otherwise they will happen
+                rapidly and won't be smooth */
+            /* transition-property: all;
+            transition-duration: 1s;
+            transition-delay: 1s;
+            transition-timing-function: linear; */
+
+            /* property name | duration */
+            transition : height 2s;
+
+            /* property name | duration | delay */
+            transition: width 4s 1s;
+
+            /* property name | duration | easing function */
+            transition: background-color 4s ease-in-out;
+
+            /* property name | duration | easing function | delay */
+            transition: height 2s ease-in-out 1s;
+
+            /* property name | duration | behavior */
+            transition: width 2s allow-discrete;
+
+            /* Apply to 2 properties */
+            transition:
+            height 2s,
+            width 3s;
+        }
+
+        .box:hover{
+            width : 2000px;
+            background-color: blueviolet;
+            height : 1500px;
+        }
+    </style>
 </head>
 <body>
     
-    
+    <div class="box">
+
+    </div>
 </body>
 </html>

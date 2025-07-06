@@ -1,0 +1,51 @@
+.box{
+    width : 400px;
+    height: 400px;
+    background-color: beige;
+    border: 2px solid black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin : auto;
+
+    transition: all 2s linear 1s;
+}
+
+.box:hover{
+    /* transform: rotate(45deg); */
+    /* transform: scale(2); */
+
+    /* transform: scale(0.5); */
+
+    /* Will make it rotate anti clockwise */
+    /* transform: rotate(-45deg); */
+
+    /* Will make it tilt to 45 degree,both positive and negative would work */
+    /* transform: skew(45deg); */
+
+    /* Positive value will make it move right and nagative in left */
+    /*                  x-axis , y-axis */
+    /* transform: translate(-500px); */
+
+    /* transform: translate(0px,400px); */
+
+    transform: translate(500px,400px);
+
+
+
+
+}
+
+p{
+    font-size: 40px;
+}
+
+.container{
+    height : 100vh;
+    width : 100vw;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
