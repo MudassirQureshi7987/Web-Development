@@ -30,6 +30,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap : 25px;
         }
 
         .box img{
@@ -38,6 +39,71 @@
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
         }
+
+        .textBox{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap : 18px;
+            width : 69%;
+            text-align: center;
+        }
+
+
+        #amountBox{
+            background-color: #259dcc;
+            width : 70%;
+            height : 10%;
+            border-radius: 10px;
+            display: flex;
+            /* flex-direction: row; */
+            justify-content: space-between;
+            align-items: center;
+            padding-right : 20px;
+            padding-left: 20px;
+        }
+
+        
+
+
+        .leftBox{
+            /* width : fit-content; */
+            height: 100%;
+            display: flex;
+            gap : 15px;
+            align-items: center;
+        }
+
+        .rightBox{
+
+        }
+
+        .annualBox{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .imgBox img {
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+
+        #paymentButton{
+            width : 70%;
+            height : 9%;
+            background-color: rgb(73, 73, 126);
+            color : white;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+
+        .cancelBox a{
+            text-decoration: none;
+            color: #5e6568;
+            font-weight: bold;
+            font-size: large;
+        }
+
     </style>
 </head>
 <body>
@@ -47,6 +113,41 @@
         <div class="box">
 
             <img src="images/icon.jpg" alt="Icon">
+
+            <div class="textBox">
+                 <h2>Order Summary</h2>
+
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit culpa asperiores eveniet laudantium voluptatum iste veniam assumenda qui.</p>
+            </div>
+           
+            <div id="amountBox">
+
+                <div class="leftBox">
+
+                    <div class="imgBox">
+                        <img src="images/music.png" alt="Music Image">
+                    </div>
+
+                    <div class="annualBox">
+
+                        <p>Annual Plan</p>
+
+                        <p>$99.9/year</p>
+                    </div>
+                </div>
+
+                <div class="rightBox">
+                    <a href="#">Change</a>
+                </div>
+            </div>
+
+            <button id = "paymentButton">
+                Proceed to Payment
+            </button>
+
+            <div class="cancelBox">
+                <a href="#">Cancel Order</a>
+            </div>
         </div>
     </div>
 </body>
