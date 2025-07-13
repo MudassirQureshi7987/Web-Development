@@ -1,0 +1,36 @@
+*{
+    margin : 0px;
+    padding : 0px;
+    box-sizing : border-box;
+}
+
+body{
+    height : 100%;
+    width : 100%;
+}
+
+.container{
+    height: 100%;
+    width : 100%;
+    background-color: rgb(56, 46, 46);
+    display: grid;
+    gap : 0.4rem;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(4,200px);
+    padding : 4rem;
+    justify-items: start;
+    align-items: center;
+    /* Works vertically */
+}
+
+.item{
+    height : 100px;
+    width : 100px;
+    background-color: rgb(38, 193, 90);
+    border : 5px solid rgb(186, 162, 162);
+    /* justify-self : stretch; */
+    /* align-self: stretch; */
+    /* Align self is for making the item horizontally moev */
+
+    /* place-self: center; */
+}
