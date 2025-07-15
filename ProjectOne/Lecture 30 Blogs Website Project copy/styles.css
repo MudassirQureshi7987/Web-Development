@@ -1,0 +1,132 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
+.container{
+    width : 100vw;
+    padding : 2rem 1rem;
+    margin: 0 auto;
+    /* background-color: aqua; */
+}
+
+a{
+    text-decoration: none;
+}
+
+.header_container{
+    margin-bottom: 2.8rem;
+}
+
+.header_title{
+    margin-bottom: 1rem;
+    font-size: 1.9rem;
+    line-height: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.header_desc{
+    max-width: 570px;
+    text-align: center;
+    color : rgb(75, 71, 71);
+    margin : 0 auto;
+    font-size: 1.1rem;
+}
+
+.main_container{
+    display: grid;
+    gap : 1.5rem;
+    grid-template-columns: repeat(4, fr);
+}
+
+.card_container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(99, 97, 97);
+}
+
+.card_image_container{
+    position: relative;
+    overflow: hidden;
+    height : 15rem;
+}
+
+.card_image{
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    height: 100%;
+}
+
+.card_title_container{
+    display: flex;
+    flex-direction: column;
+    padding : 1.5rem;
+}
+
+.card_container:hover .card_image{
+    transform: scale(1.1);
+    transition-duration: 200ms;
+}
+
+.card_title{
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    color : rgb(31, 27, 27);
+}
+
+.card_title:hover .card_title{
+    transition: all;
+    color : blue;
+}
+
+.card_title_anchor:hover .card_title{
+    color : rgb(60, 60, 199);
+}
+
+.card_desc{
+    color :rgb(59, 41, 41);
+    font-size: 1.1rem;
+}
+
+.card_footer_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.author_container{
+    display: flex;
+    align-items: center;
+    gap : 1rem;
+}
+
+.author_avatar_container{
+    height: 2.6rem;
+    width: 2.6rem;
+    overflow: hidden;
+    border : 1px solid rgb(133, 115, 115);
+    border-radius: 50%;
+    background-color: rgb(239, 230, 230);
+}
+
+.author_info_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.author_name{
+    color : rgb(93, 93, 172);
+}
+
+.author_date{
+    color : rgb(114, 98, 98);
+}
