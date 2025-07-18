@@ -10,7 +10,7 @@ body{
 }
 
 .container{
-    width : 100vw;
+    width : 70vw;
     padding : 2rem 1rem;
     margin: 0 auto;
     /* background-color: aqua; */
@@ -22,6 +22,10 @@ a{
 
 .header_container{
     margin-bottom: 2.8rem;
+}
+
+img{
+    width : 100%;
 }
 
 .header_title{
@@ -43,10 +47,30 @@ a{
 .main_container{
     display: grid;
     gap : 1.5rem;
-    grid-template-columns: repeat(4, fr);
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width : 650px) {
+    .main_container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width : 1080px) {
+    .main_container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width : 1440px) {
+    .main_container{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .card_container{
+    border-radius: 8px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     border: 1px solid rgb(99, 97, 97);
@@ -101,6 +125,8 @@ a{
 .card_footer_container{
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    padding : 1.5rem;
 }
 
 .author_container{
@@ -129,4 +155,13 @@ a{
 
 .author_date{
     color : rgb(114, 98, 98);
+}
+
+.card_tag_container{
+    font-size: 0.85rem;
+    border: 1px solid rgb(76, 71, 71);
+    border-radius: 4px;
+    line-height: 1.3rem;
+    padding: 0.25rem 0.5rem;
+    color: grey;
 }
