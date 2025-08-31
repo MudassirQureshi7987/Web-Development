@@ -15,11 +15,11 @@
 //     console.log(age); // Prints 25
 // }
 
-console.log(age); 
-// Here, JS looks for a variable named 'age' in the global scope.
-// Since the top 'var age = 40;' is commented out, 'age' is not defined -> ReferenceError
+// console.log(age); 
+// // Here, JS looks for a variable named 'age' in the global scope.
+// // Since the top 'var age = 40;' is commented out, 'age' is not defined -> ReferenceError
 
-solve();  
+// solve();  
 // Calls the function -> prints 25 
 
 // Redefinition is possble with 'var' and also reinitialization is also possible
@@ -58,3 +58,40 @@ solve();
 
 // 'const' is block-scoped and cannot be re-declared or re-initialized
 
+// Datatypes in JS
+// 1. Primitive Datatypes
+//    a. Number
+//    b. String
+//    c. Boolean
+//    d. Undefined
+//    e. Null
+//    f. Symbol (ES6)
+//    g. BigInt (ES11)
+
+let num = 42; // Number
+num = 3.14; // Floating point
+num = "Infinity"; // Special numeric value
+num = NaN; // Not a Number
+console.log(num); // Prints NaN
+num = true; // Boolean
+console.log(num); // Prints true
+
+let marks;
+console.log(marks); // Prints undefined (default value for uninitialized variables)
+
+let name = null; // Null (explicitly set to no value)
+console.log(name); // Prints null
+
+let numb = 987474758584748374748373883783783748384784938282728376483821817327382847474844747447388373737282628272;
+console.log(numb); // Prints the big integer value but may lose precision and just print in scientific notation
+
+// To handle very large integers accurately, use BigInt
+numb = BigInt("987474758584748374748373883783783748384784938282728376483821817327382847474844747447388373737282628272");
+console.log(numb); // Prints the big integer value as BigInt type
+// Prints the whole number without losing precision and as it is
+// BigInt is used for integers larger than 2^53 - 1 to -(2^53 - 1)
+
+let name1 = "Mayank"; // String
+console.log(typeof name1); // Prints "string"
+console.log(typeof(num)); // Prints "bigint"
+// both 'typeof' are used to check the datatype of a variable
