@@ -149,3 +149,185 @@ let ans = example.filter( (value) => {
 });
 
 console.log(ans); // ["Mudassir", "Hello"]
+
+// Reduce function
+// When we want to perform an operation on the whole array and want to reduce its value to a single element
+
+let arr4 = [10,29,21,23];
+
+let ans2 = arr4.reduce((acc,curr) =>{
+    return acc + curr;
+} /* , 0 (by using this syntax and declaring like this we can also mention a value that is the the initial value)  */);
+
+// In reduce, 
+
+console.log(ans2);
+
+const numbers = [1, 2, 3, 4];
+
+/*
+👉 Behavior of accumulator (acc):
+- If we give an initialValue, then acc starts with that value.
+- If we don’t give an initialValue, then acc starts as the first element of the array,
+  and the loop begins from the second element.
+*/
+
+// Example 1: With initialValue (acc starts at 0)
+const sum1 = numbers.reduce((acc, curr) => acc + curr, 0);
+console.log(sum1); // 10  (acc starts at 0, then adds all elements)
+
+// Example 2: Without initialValue (acc starts at first element)
+const sum2 = numbers.reduce((acc, curr) => acc + curr);
+console.log(sum2); // 10  (acc starts at 1, loop begins at 2)
+
+
+let random = [9,7,8,11,2,3,1];
+
+random.sort(); // Default behavior sorts elements as strings, even if they are numbers.
+
+console.log(random);
+
+/*
+array.sort(compareFunction);
+
+compareFunction (optional)
+
+    A function that defines how elements should be compared.
+
+    It takes two arguments a and b.
+
+        - If it returns negative (< 0) → a comes before b.
+
+        - If it returns positive (> 0) → b comes before a.
+
+        - If it returns 0 → order remains unchanged.
+*/
+
+numbers1 = [100, 5, 20, 3];
+
+// Ascending order
+numbers1.sort((a, b) => a - b);  // returning -ve cause if we take a = 3 and b = 5 then a - b == -ve
+console.log(numbers1); // [3, 5, 20, 100]
+
+// Descending order
+numbers1.sort((a, b) => b - a); // returns +ve cause b - a is +ve
+console.log(numbers1); // [100, 20, 5, 3]
+
+// Sorting objects  
+const students = [
+  { name: "Alice", age: 22 },
+  { name: "Bob", age: 20 },
+  { name: "Charlie", age: 25 }
+];
+
+// Sort by age
+students.sort((a, b) => a.age - b.age);
+
+console.log(students);
+/*
+[
+  { name: "Bob", age: 20 },
+  { name: "Alice", age: 22 },
+  { name: "Charlie", age: 25 }
+]
+*/
+
+// Sorting strings by length
+
+const words = ["apple", "banana", "kiwi", "cherry"];
+
+words.sort((a, b) => a.length - b.length);
+
+console.log(words); // ["kiwi", "apple", "banana", "cherry"]
+
+
+// numbers1 = [100, 5, 20, 3];
+// After sorting so became [ 100, 20, 5, 3 ]
+console.log(numbers1.indexOf(20));  // returns the 0 based index of the element if element is present
+console.log(numbers1.indexOf(222)); // if element not present then return -1
+
+// For-each loop
+
+numbers1.forEach((value,index) => {
+    console.log("Number: ", value, " Index: ",index);
+}); 
+
+let length = numbers1.length;
+
+for(let index = 0;index < length;index++)
+{
+    console.log(numbers1[index]);
+}
+
+// For-in Loop
+// The for...in loop iterates over the enumerable properties (keys) of an object.
+// It is usually used for objects, not arrays.
+
+const person1 = { name: "Alice", age: 22, city: "Paris" };
+
+for (let key in person1) {
+  console.log(key, ":", person1[key]);
+}
+
+/*
+name : Alice
+age : 22
+city : Paris
+*/
+
+// On arrays (Not Recommended)
+const numbers2 = [10, 20, 30];
+
+for (let index in numbers2) {
+  console.log(index, ":", numbers2[index]);
+}
+
+/*
+0 : 10
+1 : 20
+2 : 30
+*/
+
+
+// Nested Objects
+const student = {
+  name: "Bob",
+  marks: { math: 90, science: 85, english: 92 }
+};
+
+for (let subject in student.marks) {
+  console.log(subject, ":", student.marks[subject]);
+}
+
+/*
+math : 90
+science : 85
+english : 92
+*/
+
+// For Of loop
+// For iterating over objects
+// The values that are present in the objects(arrays,strings,etc)
+for(let value of numbers1)
+{
+    console.log(value);
+}
+
+
+// Behaviour of Arrays in Functions
+
+let arr5 = [10,20,30,40,50];
+
+function getSum(arr) {
+    let sum = 0;
+
+    arr.forEach((value) => {
+        sum += value;
+    })
+
+    return sum;
+}
+
+console.log("Sum of arr5 = ", getSum(arr5));
+
+
