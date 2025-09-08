@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <div>
+        Hello Bro
+        <div id = "mydiv">
+            <p id = "fPara">First</p>
+            <h1>second</h1>
+            <p>third</p>
+        </div>
+    </div>
+
+
+
+
+    <!-- <div id = "fdiv">
+        <p>
+            This is my First
+            <span>
+                Text
+            </span>
+        </p>
+        <p >This is my second para</p>
+    </div> -->
+
+    <!-- <div id = "fdiv">
+        <p>
+            This is my First
+            <span>
+                Text
+            </span>
+        </p>
+        <p style = "display : none">This is my second para</p>
+    </div> -->
+
+
+    <!-- <p id = "fPara" class = "textMatter">First Paragraph</p>
+    <p id = "sPara" class = "textMatter">Second Paragraph</p>
+    <p id = "tPara" class = "textMatter">Third Paragraph</p>
+    <p id = "foPara" class = "textMatter">Fourth Paragraph</p>
+
+    <h1 id = "fHeading" class = "textMatter">First Heading</h1>
+    <script src = "index.js"></script> -->
+
+    <script>
+        // let mydiv = document.querySelector('#mydiv');
+
+        // let newElement = document.createElement('span');
+        // newElement.textContent = "This is me here";
+
+        // mydiv.insertAdjacentElement('afterend',newElement);
+
+
+        // Removing the child of a parent
+
+        let parent = document.querySelector('#mydiv');
+
+        let child = document.querySelector('#fPara');
+
+        parent.removeChild(child);  // this will remove the fPara that is "first"
+        
+    </script>
+</body>
+</html>
