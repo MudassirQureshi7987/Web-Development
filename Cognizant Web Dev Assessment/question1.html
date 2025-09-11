@@ -1,0 +1,150 @@
+<!-- Image Showcase - HTML, CSS, JavaScript.
+You are tasked with creating an image showcase application where users can view and interact with a 
+collection of thumbnail images. Your task is to complete the HTML, CSS, and JavaScript code to 
+implement the following functionalities:
+Objectives:
+Create a division with the class "image-display" where the selected image will be displayed in a larger 
+view. Ensure all images with the class "thumbnail" have a width of 100px and height of 70px in the gallery.
+Implement a JavaScript function that allows users to click on a thumbnail image to display the image in a
+larger view within a division with the class "selected-image". -->
+
+<html>
+<head>
+<style>
+thumbnail { width:100px; height:70px; cursor:pointer; }
+.selected-image { width:400px; height:280px; }
+</style>
+</head>
+body>
+<img src="img1.jpeg" class="thumbnail" onclick="showImage(this)">
+<img src="img2.jpeg" class="thumbnail" onclick="showImage(this)">
+<img src="img3.jpeg" class="thumbnail" onclick="showImage(this)">
+<img src="img4.jpeg" class="thumbnail" onclick="showImage(this)">
+<div class="image-display">
+<img id="largeView" class="selected-image" src="img1.jpg">
+</div>
+<script>
+function showImage(el) { document.getElementById("largeView").src = el.src; }
+</script>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Showcase</title>
+<style>
+.thumbnail { 
+  width:100px; 
+  height:70px; 
+  cursor:pointer; 
+  object-fit: cover;
+}
+.selected-image { 
+  max-width:400px; 
+  max-height:280px; 
+}
+</style>
+</head>
+<body>
+
+<!-- Thumbnails -->
+<img src="img1.jpg" class="thumbnail">
+<img src="img2.jpg" class="thumbnail">
+<img src="img3.jpg" class="thumbnail">
+<img src="img4.jpg" class="thumbnail">
+
+<!-- Large Display -->
+<div class="image-display">
+  <img id="largeView" class="selected-image" src="img1.jpg">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .image-display {
+      margin-bottom: 20px;
+    }
+
+    .selected-image img {
+      max-width: 500px;
+      max-height: 350px;
+      border: 3px solid #333;
+      border-radius: 8px;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .thumbnail {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    .thumbnail:hover {
+      border: 2px solid #333;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Showcase</h1>
+
+  <!-- Large Image Display -->
+  <div class="image-display">
+    <div class="selected-image">
+      <img src="https://picsum.photos/id/1015/600/400" alt="Selected">
+    </div>
+  </div>
+
+  <!-- Thumbnails Gallery -->
+  <div class="gallery">
+    <img src="https://picsum.photos/id/1015/600/400" class="thumbnail" alt="Thumb 1">
+    <img src="https://picsum.photos/id/1016/600/400" class="thumbnail" alt="Thumb 2">
+    <img src="https://picsum.photos/id/1018/600/400" class="thumbnail" alt="Thumb 3">
+    <img src="https://picsum.photos/id/1024/600/400" class="thumbnail" alt="Thumb 4">
+    <img src="https://picsum.photos/id/1035/600/400" class="thumbnail" alt="Thumb 5">
+  </div>
+
+  <script>
+    // Select all thumbnails
+    const thumbnails = document.querySelectorAll(".thumbnail");
+    const selectedImage = document.querySelector(".selected-image img");
+
+    // Add click event to each thumbnail
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        selectedImage.src = thumb.src;
+        selectedImage.alt = thumb.alt;
+      });
+    });
+  </script>
+</body>
+</html>
