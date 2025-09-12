@@ -19,7 +19,7 @@
 
  console.log(Math.sqrt(5));  // 2.23606797749979
 
- console.log(Math.pow(3,3));  // 27 cause 3^3
+ console.log(Math.pow(3,3));  // 27 cause 3^3  3 ** 3 also works
 
 
 //  Date and Time Objects

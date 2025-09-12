@@ -8,6 +8,7 @@ view. Ensure all images with the class "thumbnail" have a width of 100px and hei
 Implement a JavaScript function that allows users to click on a thumbnail image to display the image in a
 larger view within a division with the class "selected-image". -->
 
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -15,13 +16,13 @@ thumbnail { width:100px; height:70px; cursor:pointer; }
 .selected-image { width:400px; height:280px; }
 </style>
 </head>
-body>
-<img src="img1.jpeg" class="thumbnail" onclick="showImage(this)">
-<img src="img2.jpeg" class="thumbnail" onclick="showImage(this)">
-<img src="img3.jpeg" class="thumbnail" onclick="showImage(this)">
-<img src="img4.jpeg" class="thumbnail" onclick="showImage(this)">
+<body>
+<img src="icon.jpg" class="thumbnail" onclick="showImage(this)">
+<img src="icon.jpg" class="thumbnail" onclick="showImage(this)">
+<img src="icon.jpg" class="thumbnail" onclick="showImage(this)">
+<img src="icon.jpg" class="thumbnail" onclick="showImage(this)">
 <div class="image-display">
-<img id="largeView" class="selected-image" src="img1.jpg">
+<img id="largeView" class="selected-image" src="">
 </div>
 <script>
 function showImage(el) { document.getElementById("largeView").src = el.src; }
@@ -67,7 +68,7 @@ function showImage(el) { document.getElementById("largeView").src = el.src; }
 
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -147,4 +148,4 @@ function showImage(el) { document.getElementById("largeView").src = el.src; }
     });
   </script>
 </body>
-</html>
+</html> -->

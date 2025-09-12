@@ -159,6 +159,9 @@ let ans2 = arr4.reduce((acc,curr) =>{
     return acc + curr;
 } /* , 0 (by using this syntax and declaring like this we can also mention a value that is the the initial value)  */);
 
+let ans7 = arr4.reduce((acc,curr) =>{
+    return acc + curr;
+},0);
 // In reduce, 
 
 console.log(ans2);

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+    /* Navbar Styling */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 15px;
+      background-color: #1e3a8a; /* dark blue */
+      color: white;
+    }
+
+    .logo, .search {
+      flex: 1;
+    }
+
+    .nav-links {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: antiquewhite;
+      font-size: 16px;
+    }
+
+    .menu {
+      display: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .search input {
+      padding: 5px;
+      border-radius: 4px;
+      border: none;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .search {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="logo">Logo</div>
+
+    <div class="menu" onclick="toggleMenu()">&#9776;</div>
+
+    <div class="nav-links" id="links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+
+    <div class="search">
+      <input type="text" placeholder="Search">
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("links").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
