@@ -1,0 +1,8 @@
+Write an SQL query to find:
+The train ID and name of all trains that have a name starting with the alphabet 'M' and that go to the station with name 'PUNE'.
+Output should contain 2 columns: train_id, train_name.
+
+SELECT train_id, train_name
+FROM trains
+WHERE train_name LIKE 'M%'
+  AND station_name = 'PUNE';
