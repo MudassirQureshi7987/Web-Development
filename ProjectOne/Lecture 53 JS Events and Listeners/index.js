@@ -150,7 +150,6 @@
 // And using event delegation to handle the events of the child elements
 // This will improve the performance of the application as we are not adding multiple event listeners to multiple elements
 
-
 // If we only want to show alerts for span and not for paragraphs in it then
 
 
