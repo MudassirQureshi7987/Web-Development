@@ -88,3 +88,5 @@ async function getData() {
     let data = await response.json();
     console.log("get data response: ", data);
 }
+
+// Fetch Data simply means to retrieve data from a server or an API endpoint using HTTP requests.
