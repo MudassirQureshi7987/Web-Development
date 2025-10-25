@@ -88,5 +88,22 @@ async function getData() {
     let data = await response.json();
     console.log("get data response: ", data);
 }
+async function postData() {
+    const response = await fetch('https://dummyjson.com/posts/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: 'Love babbar -> I am in love with someone.',
+          userId: 5,
+          /* other post data */
+        })
+      })
+    let data = await response.json();
+    console.log("post data response: ", data);
+}
 
-// Fetch Data simply means to retrieve data from a server or an API endpoint using HTTP requests.
+async function processData() {
+    await postData();
+    await getData();
+}
+processData();
