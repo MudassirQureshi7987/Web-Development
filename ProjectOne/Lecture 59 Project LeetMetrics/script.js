@@ -31,8 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
         const url = 'https://leetcode-stats-api.herokuapp.com/${username}}';
-    searchButton.addEventListener("click", function() {
+        searchButton.addEventListener("click", function() {
         const username = usernameInput.value.trim();
         console.log("Searching for user:", username);
     });
 });
+
+// Let's commit and push the changes
