@@ -1,15 +1,15 @@
 *{
-    margin : 0;
-    padding : 0;
-    box-sizing : border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Times New Roman', Times, serif;
 }
 
 body{
-    background-color: rgb(137, 122, 150);
-    color: whitesmoke;
+    background-color: rgb(89, 90, 106);
+    color:white;
     height: 100vh;
-    display : flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -17,12 +17,12 @@ body{
 .container{
     display: flex;
     flex-direction: column;
-    gap : 1.1rem;
-    background-color: rgb(77, 101, 101);
-    padding : 20px;
-    border-radius: 13px;
-    max-width: 640px;
-    width : 50%;
+    gap: 1rem;
+    background-color: rgb(69, 64, 64);
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 600px;
 }
 
 h1{
@@ -30,7 +30,7 @@ h1{
 }
 
 .user-container{
-    display : flex;
+    display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: start;
@@ -42,19 +42,15 @@ h1{
 }
 
 #user-input{
-    width : 80%;
-    padding : 0.4rem;
+    width: 80%;
+    padding: 0.4rem;
     border-radius: 5px;
 }
 
 #search-btn{
-    padding : 0.4rem;
+    padding: 0.4rem;
     border-radius: 5px;
 }
-
-/* .stats-container{
-    display : none;
-} */
 
 .circle{
     width: 120px;
@@ -77,9 +73,32 @@ h1{
 }
 
 .progress{
-    display : flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    flex-wrap : wrap;
-    gap : 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stats-cards{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+h4{
+    font-size: 1rem;
+}
+
+.card{
+    background-color: rgb(230, 146, 44);
+    width: 40%;
+    max-width: 290px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    min-height: 4rem;
 }
