@@ -4,7 +4,7 @@
 
 // Example of an event : Click event , Mouseover event , Mouseout event , Keydown event , Keyup event , Load event , Unload event , Scroll event , Resize event etc.
 
-// To check the events happening in a browsser,go to console
+// To check the events happening in a browser,go to console
 // monitorEvents(document); and enter (only supported in Chrome)
 // Now try clicking anywhere in the document and you will see the events happening in the console
 // To stop monitoring the events, enter unmonitorEvents(document);
@@ -158,7 +158,7 @@ let mydiv = document.getElementById('wrapper');
 function divHandler(event) {
     console.log("You clicked:", event.target.nodeName.toLowerCase(), "with text:", event.target.textContent);
     
-    if (event.target.nodeName === 'SPAN') { // nodeName returns the tag name in uppercase sso we compare with 'SPAN'
+    if (event.target.nodeName === 'SPAN') { // nodeName returns the tag name in uppercase so we compare with 'SPAN'
         alert("You have clicked on " + event.target.textContent);
     }
 }

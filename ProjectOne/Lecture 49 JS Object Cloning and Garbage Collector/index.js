@@ -43,7 +43,7 @@ console.log(dest);   // { age: 12, wt: 45, ht: 65 }
 // 2. Assign Method
 
 let src1 = {
-       age : 12,
+    age : 12,
     wt : 45,
     ht : 65
 }
