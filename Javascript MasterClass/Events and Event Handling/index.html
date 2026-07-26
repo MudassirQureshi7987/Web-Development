@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+        /* Full screen */
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: #3e3333; /* Grey background */
+            overflow: hidden;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Giant centered text */
+        #display {
+            font-size: min(45vw, 45vh);
+            font-weight: 900;
+            color: #000; /* Black letter */
+
+            /* user-select: none;
+            pointer-events: none; */
+            display: none;
+
+            text-align: center;
+            line-height: 1;
+
+            text-shadow:
+                0 0 20px rgba(255,255,255,.2),
+                0 0 50px rgba(255,255,255,.15);
+
+            transition: all 0.2s ease;
+            font-style: Bebas Neue;
+        }
+
+        #btn {
+            padding : 12px 20px;
+            background-color: rgb(48, 90, 48);
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+        }
+
+        #btn:hover {
+            background-color: rgb(48, 48, 90);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- <input type = "text">
+    <h3 id = "device"> Select your device </h3>
+    <select> 
+        <option value = "options"> Choose your device</option>
+
+        <option value = "samsung"> Samsung </option>
+        <option value = "iphone"> Iphone </option>
+        <option value = "oneplus"> OnePlus </option>
+        <optgroup label = "Other options">
+            <option value = "nokia"> Nokia </option>
+            <option value = "sony"> Sony </option>
+    </select> -->
+
+    <!-- <div id = "display"> a </div> -->
+    <div id = "display">  
+        <input type = "file">
+    </div>
+    <div id = "btn">
+        "Upload your file"
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
