@@ -116,22 +116,40 @@
 // });
 
 
-let abcd = document.querySelector('#abcd');
+// let abcd = document.querySelector('#abcd');
 
-abcd.addEventListener("mouseover", function() {
-    abcd.style.backgroundColor = "red";
+// abcd.addEventListener("mouseover", function() {
+//     abcd.style.backgroundColor = "red";
+// });
+
+// abcd.addEventListener("mouseout", function() {
+//     abcd.style.backgroundColor = "blue";
+// });
+
+// // Make the div move with the mousemove
+
+// window.addEventListener("mousemove", function(evt) {
+//     abcd.style.left = evt.clientX + "px";
+//     abcd.style.top = evt.clientY + "px";
+// }); // make sure to set position: absolute; in the CSS for the div with id "abcd" so that it can move with the mouse.
+
+// What is Event Bubbling?
+
+// When an event happens on an element, it first occurs on that element, then it "bubbles up" to its 
+// parent, then its parent's parent, all the way up to the document.
+
+// Suppose we have a unordered list with list items, and we want to handle click events on the list
+//  items. Instead of adding a click event listener to each list item, we can add a single click 
+// event listener to the parent unordered list. When a list item is clicked, the event will bubble 
+// up to the unordered list, and we can handle it there.
+
+let ul = document.querySelector('ul');
+
+ul.addEventListener("click", function(evt) {
+    evt.target.style.textDecoration = "line-through";  // Strike through the clicked list item
+    evt.target.classList.add("lt");  // can also be used to add a class to the clicked list item 
+                                    // which can be used to style it with CSS
 });
-
-abcd.addEventListener("mouseout", function() {
-    abcd.style.backgroundColor = "blue";
-});
-
-// Make the div move with the mousemove
-
-window.addEventListener("mousemove", function(evt) {
-    abcd.style.left = evt.clientX + "px";
-    abcd.style.top = evt.clientY + "px";
-}); // make sure to set position: absolute; in the CSS for the div with id "abcd" so that it can move with the mouse.
 
 
 
