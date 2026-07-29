@@ -151,5 +151,75 @@ ul.addEventListener("click", function(evt) {
                                     // which can be used to style it with CSS
 });
 
+// Event Delegation
+
+// Event delegation is a technique in which we add a single event listener to a parent element, 
+// and that event listener will handle events for all of its child elements. This is useful when 
+// we have a large number of child elements, or when the child elements are added dynamically 
+// (after the page has loaded).
+
+// Event delegation works because of event bubbling. When an event happens on a child element, it
+// bubbles up to the parent element, and we can handle it there. We can use the event object's 
+// target property to determine which child element was clicked.
+
+// Event stop propagation is a technique in which we stop the event from bubbling up to the parent elements.
+
+abcd.addEventListener("click", function(evt) {
+    evt.stopPropagation();
+    abcd.style.backgroundColor = "green";
+});
+
+// In the above example, when we click on the div with id "abcd", the click event will not bubble up to the window, and the window's click event listener will not be triggered.
+
+// Event capturing is the opposite of event bubbling. In event capturing, the event first occurs 
+// on the window, then on the parent element, then on the child element. We can use the third
+//  parameter of the addEventListener method to specify whether we want to use event capturing
+//  or event bubbling. By default, it is set to false (event bubbling). If we set it to true,
+//   it will use event capturing.
+
+// Phase 1: Event capturing
+// Phase 2: Target
+// Phase 3: Event bubbling
+
+grandparent.addEventListener("click", () => {
+    console.log("Grandparent Capture");
+}, true);
+
+parent.addEventListener("click", () => {
+    console.log("Parent Bubble");
+});
+
+child.addEventListener("click", () => {
+    console.log("Child");
+});
+
+// Grandparent Capture
+// Child
+// Parent Bubble
+
+// Notice:
+
+// Grandparent ran while coming down.
+// Child ran at the target.
+// Parent ran while going back up.
+
+// Task : make a counter for text input that counts the number of characters typed in the input field and displays it below the input field.
+// if length of the input is greater than 20, change the color of the counter to red, else change it to green.
+
+let inp = document.querySelector('input');
+let span = document.querySelector('span');
+
+inp.addEventListener("input", function(evt) {
+    let length = 20 - evt.target.value.length;
+    span.textContent = length;
+
+    if(length < 0) {
+        span.style.color = "red";
+    } else {
+        span.style.color = "green";
+    }   
+});
+
+
 
 
