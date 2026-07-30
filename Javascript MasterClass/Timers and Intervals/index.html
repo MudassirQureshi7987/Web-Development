@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h1>Download Manager</h1>
+
+        <div class="file-info">
+            <p><strong>File:</strong> Movie.mp4</p>
+            <p id="status">Status: <span id = "downloading">Waiting...</span></p>
+        </div>
+
+        <div class="progress-container">
+            <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <p id="progressText">Progress: <span id = "percentText">0%</span></p>
+
+        <div class="buttons">
+            <button id="downloadBtn">Download</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+
+        <p id="resultMessage"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

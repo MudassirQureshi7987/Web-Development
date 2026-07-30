@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        form{
+            width:400px;
+            margin:40px auto;
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+        }
+
+        input, select, textarea{
+            padding:12px 20px;
+            border-radius:8px;
+            border:none;
+            outline:none;
+        }
+
+        input[type = "submit"]{
+            background:#333;
+            color:white;
+            cursor:pointer;
+        }
+
+        small{
+            color:red;
+            font-size:12px;
+        }
+
+        #error{
+            display:none;
+        }
+    </style>
 </head>
 <body>
     
+    <form>
+        <input id = "name" type = "text" placeholder = "Enter your name">
+        <div id = "error">
+            <br> 
+            <small>Name should be at least 3 characters long</small>
+        </div>
+        <input id = "email" type = "email" placeholder = "Enter your email">
+        <input id = "password" type = "password" placeholder = "Enter your password">
+        <select id = "gender">
+            <option value = "male">male</option>
+            <option value = "female">female</option>
+            <option value = "other">other</option>
+        </select>
+        <textarea placeholder = "Enter your message"></textarea>
+        <input type = "submit" value = "Submit">
+    </form>
 
     <script src = "script.js"></script>
 </body>
