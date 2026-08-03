@@ -341,7 +341,7 @@ function clickLimiter() {
             click++;
             console.log(`Clicked : ${click} times`);
         } else {
-            console.log("Limit Exceeded");
+            console.error("Limit Exceeded");
         }
     }
 }
@@ -352,5 +352,157 @@ fnc();
 fnc();
 fnc();
 fnc();
-fnc();
+fnc(); // Limit Exceeded
 
+// We cannot declare a new click variable and assign its value as 0 to run this fnc function more than
+// 5 times, this is encapsulation using closures, once the value is assigned, an outside value won't
+// affect the inner variable and functionalities
+
+/*=========================================================
+                EXECUTION CONTEXT
+=========================================================*/
+
+/*
+Definition:
+Execution Context is the environment
+where JavaScript executes code.
+
+Types:
+1. Global Execution Context (GEC)
+2. Function Execution Context (FEC)
+
+Phases:
+1. Memory Creation Phase
+   - Variables allocated memory
+   - var -> undefined
+   - Functions stored
+
+2. Execution Phase
+   - Code executes line by line
+   - Variables get assigned values
+*/
+
+/*=========================================================
+                    CLOSURE
+=========================================================*/
+
+/*
+Definition:
+A Closure is a function that remembers
+variables from its outer (lexical) scope
+even after the outer function has finished.
+
+Example:
+
+function outer(){
+    let count = 0;
+
+    return function(){
+        count++;
+        console.log(count);
+    };
+}
+
+let counter = outer();
+
+counter(); // 1
+counter(); // 2
+*/
+
+/*
+Uses:
+- Data Hiding
+- Private Variables
+- Event Listeners
+- Callbacks
+- setTimeout()
+- setInterval()
+*/
+
+/*=========================================================
+                  ENCAPSULATION
+=========================================================*/
+
+/*
+Definition:
+Encapsulation is the process of bundling
+data and methods together while hiding
+internal data from direct access.
+
+In JavaScript, closures are commonly used
+to achieve encapsulation.
+
+Example:
+
+function createCounter(){
+
+    let count = 0; // Private
+
+    return {
+        increment(){
+            count++;
+        },
+        getCount(){
+            return count;
+        }
+    };
+}
+
+let counter = createCounter();
+
+counter.increment();
+
+console.log(counter.getCount()); // 1
+
+// counter.count ❌ Undefined
+*/
+
+/*
+Benefits:
+- Data Hiding
+- Security
+- Controlled Access
+- Better Code Organization
+*/
+
+
+function createToaster(config) {
+    return function (str) {
+        let div = document.createElement("div");
+        div.textContent = str;
+
+        div.className = `inline-block ${
+            config.theme === "dark"
+                ? "bg-gray-800 text-white"
+                : "bg-gray-100 text-black"
+        } px-6 py-3 rounded shadow-lg pointer-events-none`;
+
+        document.querySelector(".parent").appendChild(div);
+
+        if (config.positionX !== "left" || config.positionY !== "top") {
+            document.querySelector(".parent").className +=
+                ` ${
+                    config.positionX === "right" ? "right-5" : "left-5"
+                } ${
+                    config.positionY === "bottom" ? "bottom-5" : "top-5"
+                }`;
+        }
+
+        setTimeout(() => {
+            document.querySelector(".parent").removeChild(div);
+        }, config.duration * 1000);
+    };
+}
+
+let toaster = createToaster({
+    positionX: "left",
+    positionY: "top",
+    theme: "light",
+    duration: 3,
+});
+
+toaster("Download Done");
+
+setTimeout(() => {
+    toaster("Harsh accepted your request");
+}, 2000);
