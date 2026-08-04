@@ -466,6 +466,8 @@ Benefits:
 */
 
 
+// Project
+// create a toaster notification system using closures and encapsulation.
 function createToaster(config) {
     return function (str) {
         let div = document.createElement("div");
