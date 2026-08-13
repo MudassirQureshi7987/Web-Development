@@ -64,6 +64,8 @@ let snake = [
 
 ];
 
+let direction = "RIGHT";
+
 
 // ===============================
 // Helper Functions
@@ -144,3 +146,66 @@ drawSnake();
 console.log("Rows :", rows);
 console.log("Cols :", cols);
 console.log("Total Cells :", cells.length);
+
+document.addEventListener("keydown", changeDirection);
+
+function changeDirection(event){
+
+    if(event.key==="ArrowUp" && direction!=="DOWN")
+        direction="UP";
+
+    else if(event.key==="ArrowDown" && direction!=="UP")
+        direction="DOWN";
+
+    else if(event.key==="ArrowLeft" && direction!=="RIGHT")
+        direction="LEFT";
+
+    else if(event.key==="ArrowRight" && direction!=="LEFT")
+        direction="RIGHT";
+
+}
+
+function moveSnake(){
+
+    const head = snake[0];
+
+    let {row,col}=getPosition(head);
+
+    if(direction==="UP")
+        row--;
+
+    else if(direction==="DOWN")
+        row++;
+
+    else if(direction==="LEFT")
+        col--;
+
+    else
+        col++;
+
+    if(row < 0 || row >= rows || col < 0 || col >= cols){
+
+        alert("Game Over");
+
+        clearInterval(game);
+
+        return;
+    }
+
+    const newHead = `${row},${col}`;
+
+    snake.unshift(newHead);
+
+    snake.pop();
+
+}
+
+function gameLoop(){
+
+    moveSnake();
+
+    drawSnake();
+
+}
+
+const game = setInterval(gameLoop,200);
