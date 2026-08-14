@@ -8,13 +8,17 @@ const score = document.getElementById("score");
 const highScore = document.getElementById("high-score");
 const timer = document.getElementById("timer");
 
+let bestScore = Number(localStorage.getItem("highScore")) || 0;
+let seconds = 0;
+let speed = 200;
+
+highScore.textContent = bestScore;
 
 // ===============================
 // Constants
 // ===============================
 
 const CELL_SIZE = 30;
-
 
 // ===============================
 // Calculate Rows and Columns
@@ -23,17 +27,11 @@ const CELL_SIZE = 30;
 const rows = Math.floor(board.clientHeight / CELL_SIZE);
 const cols = Math.floor(board.clientWidth / CELL_SIZE);
 
-
 // ===============================
-// 1D Array to Store Cells
+// Create Cells
 // ===============================
 
 const cells = [];
-
-
-// ===============================
-// Create Board
-// ===============================
 
 for (let row = 0; row < rows; row++) {
 
@@ -51,9 +49,8 @@ for (let row = 0; row < rows; row++) {
 
 }
 
-
 // ===============================
-// Snake
+// Game Variables
 // ===============================
 
 let snake = [
@@ -66,78 +63,274 @@ let snake = [
 
 let direction = "RIGHT";
 
+let currentScore = 0;
+
+let food = "";
 
 // ===============================
 // Helper Functions
 // ===============================
 
-// Convert "row,col" into row and col
+function getPosition(position){
 
-function getPosition(position) {
+    const [row,col] = position.split(",");
 
-    const [row, col] = position.split(",");
+    return{
 
-    return {
-
-        row: Number(row),
-        col: Number(col)
+        row:Number(row),
+        col:Number(col)
 
     };
 
 }
 
-
-// Convert row,col into index of cells[]
-
-function getIndex(row, col) {
+function getIndex(row,col){
 
     return row * cols + col;
 
 }
 
-
 // ===============================
 // Drawing Functions
 // ===============================
 
-// Remove all colors from board
+function clearBoard(){
 
-function clearBoard() {
+    for(const cell of cells){
 
-    for (const cell of cells) {
+        cell.style.background="";
 
-        cell.style.background = "";
+        cell.style.borderRadius="0";
 
     }
 
 }
 
+setInterval(function(){
 
-// Draw Snake
+    seconds++;
 
-function drawSnake() {
+    timer.textContent = seconds;
+
+},1000);
+
+function drawFood(){
+
+    if(food === "") return;
+
+    const {row,col} = getPosition(food);
+
+    const index = getIndex(row,col);
+
+    cells[index].style.background = "crimson";
+
+    cells[index].style.borderRadius = "50%";
+
+}
+
+function render(){
 
     clearBoard();
 
-    for (const part of snake) {
+    drawSnake();
 
-        const { row, col } = getPosition(part);
+    drawFood();
 
-        const index = getIndex(row, col);
+}
 
-        cells[index].style.background = "lime";
+function drawSnake(){
+
+    for(let i=0;i<snake.length;i++){
+
+        const {row,col}=getPosition(snake[i]);
+
+        const index=getIndex(row,col);
+
+        if(i===0){
+
+            cells[index].style.background="darkgreen";
+
+        }
+        else{
+
+            cells[index].style.background="lime";
+
+        }
 
     }
 
 }
 
+// ===============================
+// Food
+// ===============================
+
+function generateFood(){
+
+    let row;
+    let col;
+
+    do{
+
+        row = Math.floor(Math.random() * rows);
+
+        col = Math.floor(Math.random() * cols);
+
+        food = `${row},${col}`;
+
+    }while(snake.includes(food));
+
+}
 
 // ===============================
-// Start Game
+// Controls
 // ===============================
 
-drawSnake();
+document.addEventListener("keydown", changeDirection);
 
+function changeDirection(event){
+
+    if(event.key === "ArrowUp" && direction !== "DOWN"){
+
+        direction = "UP";
+
+    }
+
+    else if(event.key === "ArrowDown" && direction !== "UP"){
+
+        direction = "DOWN";
+
+    }
+
+    else if(event.key === "ArrowLeft" && direction !== "RIGHT"){
+
+        direction = "LEFT";
+
+    }
+
+    else if(event.key === "ArrowRight" && direction !== "LEFT"){
+
+        direction = "RIGHT";
+
+    }
+
+}
+
+// ===============================
+// Snake Movement
+// ===============================
+
+function moveSnake(){
+
+    const head = snake[0];
+
+    let {row,col} = getPosition(head);
+
+    if(direction === "UP"){
+
+        row--;
+
+    }
+
+    else if(direction === "DOWN"){
+
+        row++;
+
+    }
+
+    else if(direction === "LEFT"){
+
+        col--;
+
+    }
+
+    else if(direction === "RIGHT"){
+
+        col++;
+
+    }
+
+    // Wall Collision
+
+    if(row < 0 || row >= rows || col < 0 || col >= cols){
+
+        clearInterval(game);
+
+        alert("Game Over");
+
+        return false;
+
+    }
+
+    const newHead = `${row},${col}`;
+
+    if(snake.slice(0,-1).includes(newHead)){
+
+        clearInterval(game);
+
+        alert("Game Over");
+
+        return;
+
+    }  
+
+    snake.unshift(newHead);
+
+    // Food Check
+
+    if(newHead === food){
+
+        currentScore++;
+
+        if(speed > 60){
+
+            speed -= 5;
+
+            clearInterval(game);
+
+            game = setInterval(gameLoop,speed);
+
+        }
+
+        if(currentScore > bestScore){
+
+            bestScore = currentScore;
+
+            highScore.textContent = bestScore;
+
+            localStorage.setItem("highScore",bestScore);
+
+        }
+
+        score.textContent = currentScore;
+
+        generateFood();
+
+    }
+
+    else{
+
+        snake.pop();
+
+    }
+
+    return true;
+
+}
+
+// ===============================
+// Game Loop
+// ===============================
+
+function gameLoop(){
+
+    if(moveSnake()){
+
+        render();
+
+    }
+
+}
 
 // ===============================
 // Debug
@@ -147,65 +340,14 @@ console.log("Rows :", rows);
 console.log("Cols :", cols);
 console.log("Total Cells :", cells.length);
 
-document.addEventListener("keydown", changeDirection);
+// ===============================
+// Start Game
+// ===============================
 
-function changeDirection(event){
+generateFood();
 
-    if(event.key==="ArrowUp" && direction!=="DOWN")
-        direction="UP";
+render();
 
-    else if(event.key==="ArrowDown" && direction!=="UP")
-        direction="DOWN";
+let game = setInterval(gameLoop,speed);
 
-    else if(event.key==="ArrowLeft" && direction!=="RIGHT")
-        direction="LEFT";
-
-    else if(event.key==="ArrowRight" && direction!=="LEFT")
-        direction="RIGHT";
-
-}
-
-function moveSnake(){
-
-    const head = snake[0];
-
-    let {row,col}=getPosition(head);
-
-    if(direction==="UP")
-        row--;
-
-    else if(direction==="DOWN")
-        row++;
-
-    else if(direction==="LEFT")
-        col--;
-
-    else
-        col++;
-
-    if(row < 0 || row >= rows || col < 0 || col >= cols){
-
-        alert("Game Over");
-
-        clearInterval(game);
-
-        return;
-    }
-
-    const newHead = `${row},${col}`;
-
-    snake.unshift(newHead);
-
-    snake.pop();
-
-}
-
-function gameLoop(){
-
-    moveSnake();
-
-    drawSnake();
-
-}
-
-const game = setInterval(gameLoop,200);
+window.focus();
