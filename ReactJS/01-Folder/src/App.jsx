@@ -127,16 +127,60 @@
 
 // export default App
 
+// import React from 'react'
+
+// const App = () => {
+//   return (
+//     <div>
+//       <h1>Hello React</h1>
+//       <h2>Hello JS</h2>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React from 'react'
+
+// const App = () => {
+//   return (
+//     <div>
+//       <div>
+//         <h1>Hello React</h1>
+//         <h2>Hello JS</h2>
+//       </div>
+//       <div>
+//         <h1>Hello React</h1>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// If we dont want to use the extra outside div then we can use React Fragment which is a built
+//  in component in React. It is used to group a list of children without adding extra nodes to
+//  the DOM. It can be used in two ways, either using the short syntax <>...</> or using 
+// <React.Fragment>...</React.Fragment>.
+
 import React from 'react'
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <div>
+        <h1>Hello React</h1>
+        <h2>Hello JS</h2>
+      </div>
+      <div>
+        <h1>Hello React</h1>
+      </div>
+    </>
   )
 }
 
 export default App
+
+
 
 
