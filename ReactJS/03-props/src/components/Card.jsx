@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Card = () => {
+const Card = (props) => {
+//   console.log(props.age, props.user);
   return (
     <div>
     <div className="card">
-        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Profile" />
-        <h1>Mohammad Mudassir</h1>
+        <img src={props.img} alt="Profile" />
+        <h1>{props.user},{props.age}</h1>
         <p>Software Engineer of the Century</p>
         <button>Follow</button>
     </div>
