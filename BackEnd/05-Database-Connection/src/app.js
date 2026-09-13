@@ -25,4 +25,28 @@ app.post("/notes", async (req, res) => {
         message : "Note created successfully"
     })
 })
+
+    // app.get("/notes", async (req, res) => {
+    //     const notes = await noteModel.find() // [] always returns an array of objects
+            // we can also get specific notes by passing a filter object in find() method
+            // like findOne() condition
+
+    //     res.status(200).json({
+    //         message : "Notes fetced successfully",
+    //         notes : notes
+    //     })
+    // })
+
+app.get("/notes", async (req, res) => {
+    const notes = await noteModel.findOne({
+         title: "test_title" 
+    }) // {} always returns a single object 
+    //    returns null if not present in the database
+
+    res.status(200).json({
+        message : "Notes fetced successfully",
+        notes : notes
+    })
+})
+
 module.exports = app;
