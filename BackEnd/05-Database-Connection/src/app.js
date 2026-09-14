@@ -6,11 +6,11 @@ app.use(express.json());
 
 /*
 
-
 POST /notes => Create a new note
 GET /notes => Get all notes
 DELETE /notes/:id => Delete a note
 PATCH /notes/:id => Update a note
+
 */
 
 app.post("/notes", async (req, res) => {
@@ -26,26 +26,49 @@ app.post("/notes", async (req, res) => {
     })
 })
 
-    // app.get("/notes", async (req, res) => {
-    //     const notes = await noteModel.find() // [] always returns an array of objects
+    app.get("/notes", async (req, res) => {
+        const notes = await noteModel.find() // [] always returns an array of objects
             // we can also get specific notes by passing a filter object in find() method
             // like findOne() condition
 
-    //     res.status(200).json({
-    //         message : "Notes fetced successfully",
-    //         notes : notes
-    //     })
-    // })
+        res.status(200).json({
+            message : "Notes fetced successfully",
+            notes : notes
+        })
+    })
 
-app.get("/notes", async (req, res) => {
-    const notes = await noteModel.findOne({
-         title: "test_title" 
-    }) // {} always returns a single object 
-    //    returns null if not present in the database
+// app.get("/notes", async (req, res) => {
+//     const notes = await noteModel.findOne({
+//          title: "test_title" 
+//     }) // {} always returns a single object 
+//     //    returns null if not present in the database
+
+//     res.status(200).json({
+//         message : "Notes fetced successfully",
+//         notes : notes
+//     })
+// })
+
+app.delete("/notes/:id", async (req, res) => {
+    const id = req.params.id;
+
+    await noteModel.findOneAndDelete({
+        _id : id
+    })
 
     res.status(200).json({
-        message : "Notes fetced successfully",
-        notes : notes
+        message : "Note deleted successfully"
+    })
+})
+
+app.patch("/notes/:id", async (req, res) => {
+    const id = req.params.id;
+    const data = req.body;  // {title,description}
+
+    await noteModel.findOneAndUpdate({ _id : id}, { description : data.description});
+
+    res.status(200).json({
+        message : "Note updated successfully"
     })
 })
 
