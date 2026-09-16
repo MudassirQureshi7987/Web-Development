@@ -7,8 +7,8 @@ app.use(express.json())
 const upload = multer( { storage : multer.memoryStorage() } )
 
 app.post("/create-post", upload.single("image"), async (req, res) => {
-    console.log(req.body);  
-    console.log(req.file);
+    console.log(req.body)  
+    console.log(req.file)
 
     res.status(200).json({
         message : "Post created successfully"
