@@ -3,11 +3,7 @@ import React,{useState} from 'react'
 const Feed = () => {
 
   const [posts, setPosts] = useState([
-    {
-        _id : 1,
-        image : 'https://ik.imagekit.io/mudassir7987/image_mp9xpREMV.jpg',
-        caption : 'This is a beautiful picture of nature.'
-    }
+    
   ])
 
   return (
