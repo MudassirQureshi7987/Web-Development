@@ -3,12 +3,12 @@ import React,{useState} from 'react'
 const Feed = () => {
 
   const [posts, setPosts] = useState([
-    
+
   ])
 
   return (
     <section className = 'feed-section'>
-        <h1>Feed</h1>
+        <h1>Feed </h1>
 
         <div className = 'posts-container'>
             {
