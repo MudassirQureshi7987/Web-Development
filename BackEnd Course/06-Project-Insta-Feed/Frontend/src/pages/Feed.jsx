@@ -8,7 +8,7 @@ const Feed = () => {
 
   return (
     <section className = 'feed-section'>
-        <h1>Feed </h1>
+        <h1>Feed</h1>
 
         <div className = 'posts-container'>
             {
