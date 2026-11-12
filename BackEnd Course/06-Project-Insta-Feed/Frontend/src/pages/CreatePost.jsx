@@ -14,7 +14,7 @@ const CreatePost = () => {
     })
     .catch((err)=> {
       console.log(err);
-      alert("Error creating post");
+      alert("Error creating post")
     })
   }
 
